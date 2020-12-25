@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="image">
+        <img src="assets/yes-s.png" alt="">
+    </div>
+    <mat-card class="content">
+        <mat-card-content>
+            <div>
+                <header><h2>Reset Password</h2></header>
+            </div>
+            <label id="enter">Enter your email address.</label>
+            <form name="resetForm" class="frm2" [formGroup]="resetForm">
+                <div class="email-input">
+                    <mat-form-field  appearance="outline">
+                        <input formControlName = "email" id="email" placeholder="email.." >
+                       <div>
+                        <button type="submit" id="reset"><b>Reset Password</b></button>
+                    </div>
+                </mat-form-field>
+            </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    </div>

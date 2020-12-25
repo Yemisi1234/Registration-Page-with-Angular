@@ -1,0 +1,46 @@
+$mycolor: hsl(17, 100%, 50%);
+$fontfamily: Arial, Helvetica, sans-serif;
+mat-card{
+    width: 330px;
+    max-height: 500px;
+    padding-top: 0px;
+    margin: auto;
+    font-family: $fontfamily;
+    font-size: 12px;
+    background: hsl(90,100%, 200%);
+ };
+.image{
+    text-align: center;
+    margin-bottom: 10px;
+}
+img{
+    height: 80px;
+    margin-top: 50px;
+}
+#reset{
+    margin-top: 10px;
+    background: $mycolor;
+    color: white;
+    font-family: $fontfamily;
+    border-radius: 5px;
+    text-decoration: white;
+    height: 29px;
+    width: 120px;
+    border: rgb(255, 72, 0);
+    font-family: $fontfamily;
+    font-size: 11px;
+    
+}
+.content{
+    box-shadow:  0 10px 10px  5px whitesmoke;
+    margin-bottom: 200px;
+    border-radius: 10px;
+}
+header{
+    padding-top: 20px;
+    text-align: center;
+}
+#enter{
+    font-family: $fontfamily;
+    font-size: 11px;
+}
