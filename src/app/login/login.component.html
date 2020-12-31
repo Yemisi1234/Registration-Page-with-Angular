@@ -1,39 +1,39 @@
 <div class="container">
+
     <div class="image">
         <img src="assets/yes-s.png" alt="">
     </div>
-    <mat-card class="content">
-        <mat-card-content>
+    <div class="content">
             <div>
                 <header><h2>Login</h2></header>
             </div>
-            <form class="frm" name="loginForm" [formGroup]="loginForm">
-                <div class="email-input">
-                    <mat-form-field  appearance="outline">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1"><h5>Email address</h5></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email address" >
-                        </div>
-                     </mat-form-field>
+ 
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="email"><h5>Email address</h5></label>
+                    <input type="email" class="form-control"  formControlName="email" placeholder="Enter email address" >
                 </div>
-                <div>
-                   <mat-form-field class="full-width" appearance="outline">
-                    <div class="form-group">
-                        <label for="exampleInputPassword1"><h5 id="pa">Password</h5></label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        <div>
-                        <input type="text"id="place"  placeholder="ForgotPassword" routerLink="/reset" (click)="getActiveTab('reset')" [class.active] = "activate === 'reset'">
-                    </div>
-                    </div>
-                </mat-form-field>
-            </div>
-                <div>
-                    <button class=" btn btn-primary" type="submit">LOGIN</button>
+
+                <div class="form-group">
+                    <label for="password"><h5 id="password">Password</h5></label>
+                    <input type="password" class="form-control"  formControlName="password"  placeholder="Password">
                 </div>
+
+                <div>
+                    <input type="text" id="place"  placeholder="ForgotPassword" routerLink="/reset" (click)="getActiveTab('reset')" [class.active] = "activate === 'reset'">
+                </div>
+                
+                <div>
+                    <button class="btn btn-primary" type="submit">LOGIN</button>
+                </div>
+                
                 <div id="signup"> 
                     <a routerLink="/signup" (click)="getActiveTab('signup')" [class.active] = "activate === 'signup'">New user?<b> Sign Up</b></a>
                 </div>
-            </form>
-        </mat-card-content>
-    </mat-card>
+                <ng-template [ngIf]="status">
+                    <h1> {{ message }} </h1>
+                </ng-template> 
+            </form> 
+            
     </div>
+</div>

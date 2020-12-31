@@ -2,8 +2,11 @@ $mycolor: hsl(17, 100%, 50%);
 $fontfamily: Arial, Helvetica, sans-serif;
 
 .container{
-    position: static;  
+    position: static;
+    width: 40%;
+    padding-left: 25%;
 }
+     
 .image{
     text-align: center;
     margin-bottom: 10px;
@@ -12,25 +15,26 @@ img{
     height: 80px;
     margin-top: -50px;
 }
-.frm input {
-width: 173%;
-font-family: $fontfamily;
-font-size: 11px;
-height: 10px;
-text-decoration-color: none;
-opacity: 1;
-background: hsl(90,100%, 200%);
-border-style: ridge;
-padding: 7px;
-margin-top: 0;
+.form input {
+    width: 70%;
+    font-family: $fontfamily;
+    font-size: 11px;
+    height: 10px;
+    text-decoration-color: none;
+    opacity: 1;
+    background: hsl(90,100%, 200%);
+    border-style: ridge;
+    padding: 7px;
+    margin: 10px;
 }
+
 input{
     opacity: -500px;
     border-color: hsl(90,100%, 200%);
 }
 h5{
-    font-family: $fontfamily;
     opacity: 10px;
+    font-family: $fontfamily;
     font-size: 11px;
     margin-bottom: 0;
     
@@ -39,9 +43,8 @@ h5{
     font-family: $fontfamily;
     font-size: 11px;
 }
-mat-card{
+.form{
     width: 330px;
-    max-height: 500px;
     padding-top: 0px;
     margin: auto;
     font-family: $fontfamily;
@@ -58,29 +61,23 @@ header{
     padding-left: 0;
     font-size: 7px;
     border-style: hidden;
+}
+div{
 
-  
+    #place{
+        padding-left: 80%;
+        display: inline;
+        color: rgba(255, 0, 64, 0.87);
+        cursor: pointer;
+        font-family: $fontfamily;
+        font-size: 11px;
+        width: 60%;
+        border-style: hidden;
+        border-color: orangered;  
+    }
 }
-#place{
-    padding-left: 120%;
-    color: rgba(255, 0, 128, 0.952);
-    display: inline;
-    cursor: pointer;
-    font-family: $fontfamily;
-    font-size: 11px;
-    width: 60%;
-    border-style: hidden;
-    border-color: orangered;
 
-    
-}
-#signup{
-    color: $mycolor;
-    padding-top: 20px;
-    text-align: center;
-    cursor: pointer;
-    font-size: 12px;
-}
+
 .content{
     box-shadow:  0 10px 10px  5px whitesmoke;
     margin-bottom: 200px;
@@ -96,3 +93,13 @@ button{
     width: 75px;
     border: rgb(255, 72, 0);
 }   
+div{
+    a {
+        color: $mycolor;
+        padding-top: 20px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 12px;
+        padding-left: 40%;
+    }
+}

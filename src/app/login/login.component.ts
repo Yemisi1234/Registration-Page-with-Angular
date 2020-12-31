@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -8,25 +9,57 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 
-export class LoginComponent implements OnInit {
-  activate = 'home';
-
-  loginForm : FormGroup;
-  constructor() { 
+// Previous
+// export class LoginComponent implements OnInit {
+//   loginForm;
+//   constructor(
+//     private formBuilder: FormBuilder,
+//   ) { 
+//     this.loginForm = this.formBuilder.group({
+//       email: '',
+//       password: ''
+//     });
+//   }
+  
+//   ngOnInit() {
    
-  }
+//   }
+    
+//   onSubmit(Data) {
+//     // Process checkout data here
+//     this.loginForm.reset();
   
-  ngOnInit(): void {
-    this.loginForm = new FormGroup(
-      {
-        email : new FormControl('',[Validators.required, Validators.email]),
-        password: new FormControl('',[Validators.required, Validators.minLength(6)])
-      }
-    )
+//     console.warn('Your form has been submitted',
+//      Data);
+//   } 
+//   }
+
+
+export class LoginComponent implements OnInit {
+
+  status: boolen;
+  message: string;
+  loginForm: FormGroup;
+
+  constructor (private http: HttpClient) {}
+
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+        email: new FormControl(''),
+        password: new FormControl('')
+      });
   }
-  
-getActiveTab(tabname: string) {
-this.activate = tabname;
-}
+    
+
+  onSubmit() {
+
+    this.http.post<any>('https://utilitee.cloudifymedia.com/api/fola/data', this.loginForm.value)
+    .subscribe(data => { 
+      this.status = data.done;
+      this.message = data.message;
+    })
+
+  }
+
 }
 

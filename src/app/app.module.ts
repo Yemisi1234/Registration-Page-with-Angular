@@ -1,5 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component } from '@angular/core';  
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { ResetComponent } from './reset/reset.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 
@@ -25,10 +27,11 @@ import { ResetComponent } from './reset/reset.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    ResetComponent
+    ResetComponent,
+    PostsComponent,
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
@@ -36,11 +39,14 @@ import { ResetComponent } from './reset/reset.component';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
+    HttpClientModule, 
+    
     RouterModule.forRoot([
       { path: '',component: AppComponent},
       { path: 'signup', component: SignupComponent},
       { path: 'reset', component: ResetComponent},
-    ])
+    ]), 
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

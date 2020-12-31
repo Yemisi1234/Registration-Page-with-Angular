@@ -1,3 +1,4 @@
++
 <div class="container">
     <div class="image">
         <img src="assets/yes-s.png" alt="">
@@ -7,9 +8,9 @@
             <div>
                 <header><h2>Sign Up</h2></header>
             </div>
-            <form name="signUpForm"  class="frm1" [formGroup]="sigUpForm">
+            <form class="frm1" [formGroup]="sigUpForm">
                 <div class="email-input">
-                    <mat-form-field  appearance="outline">
+                    <mat-form-field  MatFormFieldControl="f" appearance="outline">
                        <div class="row">
                            <div class="col"><input type="text" placeholder="First Name"></div>
                            <div class="col2"><input type="text" placeholder="Last Name"></div>
