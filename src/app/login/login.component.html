@@ -4,32 +4,33 @@
         <img src="assets/yes-s.png" alt="">
     </div>
     <div class="content">
-            <div>
+            <div *ngIf="!isSignedIn">
                 <header><h2>Login</h2></header>
             </div>
  
             <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="email"><h5>Email address</h5></label>
-                    <input type="email" class="form-control"  formControlName="email" placeholder="Enter email address" >
+                    <input type="email " class="form-control"  formControlName="email" placeholder="Enter email address" #email>
                 </div>
 
                 <div class="form-group">
                     <label for="password"><h5 id="password">Password</h5></label>
-                    <input type="password" class="form-control"  formControlName="password"  placeholder="Password">
+                    <input type="password" class="form-control"  formControlName="password"  placeholder="Password" #password>
                 </div>
 
-                <div>
+                <div id="place">
                     <input type="text" id="place"  placeholder="ForgotPassword" routerLink="/reset" (click)="getActiveTab('reset')" [class.active] = "activate === 'reset'">
                 </div>
                 
                 <div>
-                    <button class="btn btn-primary" type="submit">LOGIN</button>
+                    <button (click) = "onSignin(email.value.password.value)" class="btn btn-primary" type="submit" >LOGIN</button>
                 </div>
                 
                 <div id="signup"> 
                     <a routerLink="/signup" (click)="getActiveTab('signup')" [class.active] = "activate === 'signup'">New user?<b> Sign Up</b></a>
                 </div>
+                <app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
                 <ng-template [ngIf]="status">
                     <h1> {{ message }} </h1>
                 </ng-template> 
