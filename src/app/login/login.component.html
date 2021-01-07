@@ -4,7 +4,7 @@
         <img src="assets/yes-s.png" alt="">
     </div>
     <div class="content">
-            <div *ngIf="!isSignedIn">
+            <div>
                 <header><h2>Login</h2></header>
             </div>
  
@@ -30,7 +30,6 @@
                 <div id="signup"> 
                     <a routerLink="/signup" (click)="getActiveTab('signup')" [class.active] = "activate === 'signup'">New user?<b> Sign Up</b></a>
                 </div>
-                <app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
                 <ng-template [ngIf]="status">
                     <h1> {{ message }} </h1>
                 </ng-template> 
