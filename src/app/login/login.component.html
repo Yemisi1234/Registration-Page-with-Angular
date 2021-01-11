@@ -9,31 +9,47 @@
             </div>
  
             <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <ng-template [ngIf]="message">
+                    <p class="error"> {{ message }}</p>
+                </ng-template>
                 <div class="form-group">
                     <label for="email"><h5>Email address</h5></label>
-                    <input type="email" class="form-control"  formControlName="email" placeholder="Enter email address" >
+                    <input type="email" required ngModel class="form-control"  formControlName="email" placeholder="Enter email address" id="email">
                 </div>
 
                 <div class="form-group">
-                    <label for="password"><h5 id="password">Password</h5></label>
-                    <input type="password" class="form-control"  formControlName="password"  placeholder="Password">
+                    <label for="password"><h5>Password</h5></label>
+                    <input type="password"  required class="form-control"  formControlName="password"  placeholder=" Enter password" id="password">
+                    <input type="password"   formControlName=" forgot password"  placeholder=" Forgot password?" id="pass"><br/>
                 </div>
-
                 <div>
-                    <input type="text" id="place"  placeholder="ForgotPassword" routerLink="/reset" (click)="getActiveTab('reset')" [class.active] = "activate === 'reset'">
+                    <button [disabled]="!loginForm" class="btn btn-primary" type="submit">
+                        <ng-template [ngIf]="loading">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                width="60px" height="10px" viewBox="0 0 80 20">
+                                <circle cx="10" cy="10" r="10" fill="#fff" >
+                                    <animate attributeName="cx" from="10" to="40" dur="0.5s" calcMode="spline" keySplines="0.42 0 0.58 1" keyTimes="0;1" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="10" cy="10" r="0" fill="#fff">
+                                    <animate attributeName="r" from="0" to="10" dur="0.5s" calcMode="spline" keySplines="0.42 0 0.58 1" keyTimes="0;1" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="40" cy="10" r="10" fill="#fff">
+                                    <animate attributeName="cx" from="40" to="70" dur="0.5s" calcMode="spline" keySplines="0.42 0 0.58 1" keyTimes="0;1" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="70" cy="10" r="10" fill="#fff">
+                                    <animate attributeName="r" from="10" to="0" dur="0.5s" calcMode="spline" keySplines="0.42 0 0.58 1" keyTimes="0;1" repeatCount="indefinite" />
+                                </circle>
+                            </svg>
+                        </ng-template>
+                        <ng-template [ngIf]="!loading">
+                            LOGIN
+                        </ng-template>
+                    </button><br><br>
                 </div>
-                
-                <div>
-                    <button class="btn btn-primary" type="submit">LOGIN</button>
-                </div>
-                
                 <div id="signup"> 
-                    <a routerLink="/signup" (click)="getActiveTab('signup')" [class.active] = "activate === 'signup'">New user?<b> Sign Up</b></a>
+                    <a routerLink="/signup" >New user? Sign Up</a>
                 </div>
-                <ng-template [ngIf]="status">
-                    <h1> {{ message }} </h1>
-                </ng-template> 
-            </form> 
+            </form>  
             
     </div>
 </div>

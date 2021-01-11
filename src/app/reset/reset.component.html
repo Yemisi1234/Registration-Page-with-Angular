@@ -2,22 +2,18 @@
     <div class="image">
         <img src="assets/yes-s.png" alt="">
     </div>
-    <mat-card class="content">
-        <mat-card-content>
+    
+    <div>
+        <form class="form" [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="email"><h5>Email address</h5></label>
+                <input type="email" class="form-control"  formControlName="email" placeholder="Enter email address" id="email">
+            </div>
+
             <div>
-                <header><h2>Reset Password</h2></header>
+                <button class="btn btn-primary" type="submit" >Reset Password</button>
             </div>
-            <label id="enter">Enter your email address.</label>
-            <form name="resetForm" class="frm2" [formGroup]="resetForm">
-                <div class="email-input">
-                    <mat-form-field  appearance="outline">
-                        <input formControlName = "email" id="email" placeholder="email.." >
-                       <div>
-                        <button type="submit" id="reset"><b>Reset Password</b></button>
-                    </div>
-                </mat-form-field>
-            </div>
-            </form>
-        </mat-card-content>
-    </mat-card>
-    </div>
+        </form> 
+    </div>   
+
+</div>

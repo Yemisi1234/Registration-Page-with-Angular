@@ -1,29 +1,24 @@
 $mycolor: hsl(17, 100%, 50%);
 $fontfamily: Arial, Helvetica, sans-serif;
-mat-card{
-    display: flex;
+.container{
     width: 350px;
-    height: 250px;
+    height: 430px;
     padding-top: 0px;
     margin: auto;
     font-family: $fontfamily;
     font-size: 12px;
     background: hsl(90,100%, 200%);
-   
+    box-shadow:  0 10px 10px  5px whitesmoke;
+    margin-bottom: 200px;
+    border-radius: 10px;
 
 }
-.col2{
-    padding-left: 200px;
-    transform: translate(-10%,-97%);
+
+.error {
+    color: red;
 }
-.col4{
-    padding-left: 200px;
-    transform: translate(-10%,-97%);
-}
-.col6{
-    padding-left: 200px;
-    transform: translate(-10%,-97%);
-}
+
+
 .image{
     text-align: center;
     margin-bottom: 10px;
@@ -57,6 +52,7 @@ button{
     width: 75px;
     border: rgb(255, 72, 0);
     cursor: pointer;
+    align-self: end;
 }
 #bb{
   float: right;
@@ -77,4 +73,16 @@ div b{
     box-shadow:  0 10px 10px  5px whitesmoke;
     margin-bottom: 200px;
     border-radius: 10px;
+}
+.form{
+    padding-left: 20px;
+    
+}
+.form-group{
+    padding: 5px;
+}
+div{
+    h2{
+        text-align: center;
+    }
 }

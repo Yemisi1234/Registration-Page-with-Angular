@@ -1,35 +1,49 @@
-+
-<div class="container">
-    <div class="image">
-        <img src="assets/yes-s.png" alt="">
-    </div>
-    <mat-card class="content">
-        <mat-card-content>
-            <div>
-                <header><h2>Sign Up</h2></header>
-            </div>
-            <form class="frm1" [formGroup]="sigUpForm">
-                <div class="email-input">
-                    <mat-form-field  MatFormFieldControl="f" appearance="outline">
-                       <div class="row">
-                           <div class="col"><input type="text" placeholder="First Name"></div>
-                           <div class="col2"><input type="text" placeholder="Last Name"></div>
-                           <div class="w-100"></div>
-                           <div class="col3"><input type="text" placeholder="Enter email"></div>
-                           <div class="col4"><input type="text" placeholder="Enter phone"></div>
-                           <div class="w-100"></div>
-                           <div class="col5"><input type="text" placeholder="Password"></div>
-                           <div class="col6"><input type="text" placeholder="Confirm Password"></div>
-                           
-                       </div>
-                       <div>
-                        <button type="submit" id="bb">Submit</button>
-                    </div>
-                    <div><h3  routerLink="/login" (click)="getActiveTab('login')" [class.active] = "activate === 'login'"><b><</b>login</h3></div>
-                </mat-form-field>
+<div class="image">
+    <img src="assets/yes-s.png" alt="">
+</div>
+<div class="container"> 
+    <div>
+
+        <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <ng-template [ngIf]="message">
+                <p class="error">
+                    {{ message }}
+                </p>
+            </ng-template>
+            <div><h2>Sign Up</h2></div>
+            <div class="form-group">
+                <label for="first_name"></label>
+                <input type="text" class="form-control"  formControlName="first_name" placeholder="First name" id="first_name">
             </div>
 
-            </form>
-        </mat-card-content>
-    </mat-card>
+            <div class="form-group">
+                <label for="last_name"></label>
+                <input type="text" class="form-control"  formControlName="last_name"  placeholder="Last name" id="last_name">
+            </div>
+
+            <div class="form-group">
+                <label for="email"></label>
+                <input type="email" class="form-control"  formControlName="email" placeholder="Enter email address" id="email">
+            </div>
+
+            <div class="form-group">
+                <label for="phone"></label>
+                <input type="text" class="form-control"  formControlName="phone" placeholder="Enter phone number" id="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="password" id="password"></label>
+                <input type="password" class="form-control"  formControlName="password"  placeholder="Password" id="password">
+            </div>
+
+            <div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div>
+                <h3>
+                    <a routerLink="/login">login</a>
+                </h3>
+            </div>
+        </form> 
     </div>
+</div> 

@@ -1,7 +1,7 @@
+// import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';  
-
+import { NgModule, Component } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { ResetComponent } from './reset/reset.component';
-import { PostsComponent } from './posts/posts.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -28,7 +28,7 @@ import { PostsComponent } from './posts/posts.component';
     LoginComponent,
     SignupComponent,
     ResetComponent,
-    PostsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,16 +39,18 @@ import { PostsComponent } from './posts/posts.component';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
-    HttpClientModule, 
-    
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '',component: AppComponent},
       { path: 'signup', component: SignupComponent},
       { path: 'reset', component: ResetComponent},
+      { path: 'navbar', component: NavbarComponent},
     ]), 
-  
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
-export class AppModule { }
+export class AppModule {}
+//  platformBrowserDynamic().bootstrapModule(AppModule); 

@@ -1,0 +1,19 @@
+
+  <main>
+  
+
+    <ng-template [ngIf]="loading">
+      Loading.....
+    </ng-template>
+    <ng-template [ngIf]="!loading">
+      <h1>Welcome back, {{ first_name }} !</h1>
+      <hr />
+      <h3>Email address: {{ email }}</h3>
+
+      <hr />
+    </ng-template>
+</main> 
+<footer>
+  <button (click)="handleClickLogout()">Logout</button>
+</footer>
+    
