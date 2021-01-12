@@ -14,7 +14,6 @@
                 </ng-template>
                 <div class="form-group">
                     <label for="email"><h5>Email address</h5></label>
-<<<<<<< HEAD
                     <input type="email" required ngModel class="form-control"  formControlName="email" placeholder="Enter email address" id="email">
                 </div>
 
@@ -46,22 +45,6 @@
                             LOGIN
                         </ng-template>
                     </button><br><br>
-=======
-                    <input type="email " class="form-control"  formControlName="email" placeholder="Enter email address" #email>
-                </div>
-
-                <div class="form-group">
-                    <label for="password"><h5 id="password">Password</h5></label>
-                    <input type="password" class="form-control"  formControlName="password"  placeholder="Password" #password>
-                </div>
-
-                <div id="place">
-                    <input type="text" id="place"  placeholder="ForgotPassword" routerLink="/reset" (click)="getActiveTab('reset')" [class.active] = "activate === 'reset'">
-                </div>
-                
-                <div>
-                    <button (click) = "onSignin(email.value.password.value)" class="btn btn-primary" type="submit" >LOGIN</button>
->>>>>>> 4c0b009fb0a2ec1a1148a128541ec4708e83da2a
                 </div>
                 <div id="signup"> 
                     <a routerLink="/signup" >New user? Sign Up</a>
