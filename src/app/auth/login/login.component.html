@@ -7,21 +7,24 @@
             <div>
                 <header><h2>Login</h2></header>
             </div>
- 
+
             <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <ng-template [ngIf]="message">
                     <p class="error"> {{ message }}</p>
                 </ng-template>
                 <div class="form-group">
                     <label for="email"><h5>Email address</h5></label>
-                    <input type="email" required ngModel class="form-control"  formControlName="email" placeholder="Enter email address" id="email">
+                    <input type="email" required class="form-control"  formControlName="email" placeholder="Enter email address" id="email">
                 </div>
 
                 <div class="form-group">
                     <label for="password"><h5>Password</h5></label>
                     <input type="password"  required class="form-control"  formControlName="password"  placeholder=" Enter password" id="password">
-                    <input type="password"   formControlName=" forgot password"  placeholder=" Forgot password?" id="pass"><br/>
+
                 </div>
+              <div class="form-group" >
+                <p  id=pass routerLink="/auth/reset-password">Forgot Password?</p>
+              </div>
                 <div>
                     <button [disabled]="!loginForm" class="btn btn-primary" type="submit">
                         <ng-template [ngIf]="loading">
@@ -46,10 +49,10 @@
                         </ng-template>
                     </button><br><br>
                 </div>
-                <div id="signup"> 
-                    <a routerLink="/signup" >New user? Sign Up</a>
+                <div id="signup">
+                    <a routerLink="/auth/sign-up" >New user? Sign Up</a>
                 </div>
-            </form>  
-            
+            </form>
+
     </div>
 </div>

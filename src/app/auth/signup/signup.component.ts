@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -25,11 +26,12 @@ export class SignupComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor (private _router: Router, private http: HttpClient) {
-   
+  constructor(private router: Router, private http: HttpClient, private auth: AuthService) {
+
   }
 
   ngOnInit() {
+    this.auth.setTitle('Create Account');
   }
 
   onSubmit() {
@@ -37,14 +39,15 @@ export class SignupComponent implements OnInit {
 
     this.message = '';
     this.http.post<any>('https://yescapital.ng/api/user/register', this.signupForm.value)
-    .subscribe(data => { 
-         if(data.done === true) {
+      .subscribe(data => {
+        if (data.done === true) {
+          this.auth.isLoggedIn = true;
           localStorage.setItem('token', data.token);
-          this._router.navigate(['navbar']);
-         } else {
-         
+          this.router.navigate(['/home']);
+        } else {
+
           this.message = data.message;
-         }
-    })
+        }
+      });
   }
 }
